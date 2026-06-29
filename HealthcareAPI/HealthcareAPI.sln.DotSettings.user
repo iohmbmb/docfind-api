@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AEqualityAsserts_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002Econfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003Fad8b2779652854276d03ec153d51377686c7193799d1688e119272770d0cf_003FEqualityAsserts_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AExceptionDispatchInfo_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002Econfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F1a515c6c2d0f468cbb9b3c61913ba929d1a000_003F6d_003Fe45edb08_003FExceptionDispatchInfo_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d059c88e_002D3ad2_002D414e_002D9f89_002Da4572dee4c16/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AppointmentTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.AppointmentTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.AuthTests.RegisterUser_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.AuthTests.LoginUser_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests.GetUsers_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.AuthTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests.GetDoctors_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests.GetDoctors_BySpecialty_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests.DeleteUser_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests.DeleteDoctor_ReturnOK&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::36ABE0EF-9A1C-40FE-B851-23EDC0F6DEEB::net9.0::HealthcareAPI.Tests.UserTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

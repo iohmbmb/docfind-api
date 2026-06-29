@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ot8vIW5Xm7o=",
+  "dgSpecHash": "EppKHvyT9Ws=",
   "success": true,
-  "projectFilePath": "/home/iohannes/Projects/dotnet/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+  "projectFilePath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
   "expectedPackageFiles": [
     "/home/iohannes/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
     "/home/iohannes/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/9.0.17/microsoft.aspnetcore.authentication.jwtbearer.9.0.17.nupkg.sha512",

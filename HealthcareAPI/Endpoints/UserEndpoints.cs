@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using HealthcareAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthcareAPI.Endpoints;
@@ -18,7 +19,7 @@ public static class UserEndpoints
         {
             var doctors = await context.Doctors.ToListAsync();
             return Results.Ok(doctors);
-        }).WithTags("Doctor").WithSummary("Retrieves all doctors.").WithDescription("Retrieves a list of all doctors from the database.");
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Doctor").WithSummary("Retrieves all doctors.").WithDescription("Retrieves a list of all doctors from the database.");
 
         app.MapGet("/api/get/doctors/{specialty}", async (string specialty, AppDbContext context) =>
         {  
@@ -28,7 +29,7 @@ public static class UserEndpoints
                 return Results.NotFound();
             }
             return Results.Ok(users);
-        }).WithTags("Doctor").WithSummary("Retrieves doctors by specialty.").WithDescription("Retrieves a list of doctors from the database based on the provided specialty.");
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Doctor").WithSummary("Retrieves doctors by specialty.").WithDescription("Retrieves a list of doctors from the database based on the provided specialty.");
         
         app.MapDelete("/api/delete/user/{id}", async (Guid id, AppDbContext context) =>
         {

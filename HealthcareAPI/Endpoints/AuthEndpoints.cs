@@ -84,17 +84,17 @@ public static class AuthEndpoints
                     return Results.Unauthorized();
                 }
 
-                // Generate claims (the payload containing user data)
+                // Generate claims 
                 var claims = new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Email, user.Email!),
-                    new Claim(ClaimTypes.Role, user.Role.ToString()), // Binds your UserRole enum seamlessly
+                    new Claim(ClaimTypes.Role, user.Role.ToString()), // Binds UserRole
                     new Claim("FirstName", user.FirstName ?? "")
                 };
 
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JwtSettings:Secret"]!)); //
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256); //
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JwtSettings:Secret"]!));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256); 
 
                 var token = new JwtSecurityToken(
                     issuer: config["JwtSettings:Issuer"],

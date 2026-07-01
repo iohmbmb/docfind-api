@@ -1,4 +1,5 @@
 using HealthcareAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthcareAPI.Endpoints;
@@ -26,7 +27,7 @@ public static class AppointmentEndpoints
             context.Appointments.Add(appointments);
             await context.SaveChangesAsync();
             return Results.Created($"/api/create/appointment", appointments);
-        }).RequireAuthorization().WithTags("Appointment").WithSummary("Creates a new appointment.").WithDescription("Creates a new appointment in the database with the provided information.");
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Appointment").WithSummary("Creates a new appointment.").WithDescription("Creates a new appointment in the database with the provided information.");
         
         app.MapPost("/api/create/record", async (MedicalRecords medicalRecords, AppDbContext context) =>
         {
@@ -34,7 +35,7 @@ public static class AppointmentEndpoints
             context.MedicalRecords.Add(medicalRecords);
             await context.SaveChangesAsync();
             return Results.Created($"/api/create/record/{medicalRecords.Id}", medicalRecords);
-        }).RequireAuthorization().WithTags("MedicalRecord").WithSummary("Creates a new medical record.").WithDescription("Creates a new medical record in the database for the specified appointment based on its ID.");
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("MedicalRecord").WithSummary("Creates a new medical record.").WithDescription("Creates a new medical record in the database for the specified appointment based on its ID.");
         
         app.MapPut("/api/update/appointment/{id:guid}", async (Guid id, Appointments appointment, AppDbContext context) =>
         {
@@ -92,6 +93,6 @@ public static class AppointmentEndpoints
             context.MedicalRecords.Remove(records);
             await context.SaveChangesAsync();
             return Results.Ok();
-        }).RequireAuthorization().WithTags("MedicalRecord").WithSummary("Deletes an existing medical record.").WithDescription("Deletes an existing medical record from the database for the specified appointment based on its ID.");
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("MedicalRecord").WithSummary("Deletes an existing medical record.").WithDescription("Deletes an existing medical record from the database for the specified appointment based on its ID.");
     }
 }

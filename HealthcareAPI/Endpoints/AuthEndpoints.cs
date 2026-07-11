@@ -23,6 +23,8 @@ public static class AuthEndpoints
         
         app.MapPost("/api/auth/register", async (RegisterRequest request, AppDbContext context) =>
         {
+            var ret = new Users();
+            
             if (await context.Users.AnyAsync(u => u.Email == request.Email) || await context.Doctors.AnyAsync(d => d.Email == request.Email))
             {
                 return Results.BadRequest("Email is already registered.");
@@ -43,8 +45,8 @@ public static class AuthEndpoints
                         Role = request.Role
                     };
                     if (request.Password != null) patient.PasswordHash = hasher.HashPassword(patient, request.Password);
-
-                    context.Users.Add(patient); 
+                    ret = patient;
+                    context.Users.Add(ret); 
                     break;
 
                 case Users.UserRole.Doctor:
@@ -55,10 +57,21 @@ public static class AuthEndpoints
                         FirstName = request.FirstName,
                         LastName = request.LastName,
                         Role = request.Role,
-                        Specialty = request.Specialty ?? "General"
+                        Specialty = request.Specialty ?? PracticeSpecialty.GeneralPractice,
+                        PracticeName = request.PracticeName,
+                        PracticeAddress = request.PracticeAddress,
+                        PracticeSuburb = request.PracticeSuburb,
+                        PracticeState = request.PracticeState,
+                        PracticePostcode = request.PracticePostcode,
+                        PracticePhone = request.PracticePhone,
+                        Biography = request.Biography,
+                        Preference = request.Preference ?? LocationPreference.Hybrid,
+                        Status = request.Status ?? Availability.Available,
+                        HourlyRate = request.HourlyRate ?? 0,
+                        
                     };
                     if (request.Password != null) doctor.PasswordHash = hasher.HashPassword(doctor, request.Password);
-
+                    ret = doctor;
                     context.Doctors.Add(doctor); 
                     break;
 
@@ -67,7 +80,7 @@ public static class AuthEndpoints
             }
 
             await context.SaveChangesAsync();
-            return Results.Ok("Registration successful!");
+            return Results.Ok(ret);
         }).WithTags("Auth");
         
         app.MapPost("/api/auth/login", async (LoginRequest request, AppDbContext context, IConfiguration config) =>

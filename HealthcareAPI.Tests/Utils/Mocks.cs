@@ -40,14 +40,14 @@ public static class Mocks
             LastName = "Smith",
             Email = "dale.smith@test.com",
             PasswordHash = "averysafepassword", 
-            Specialty = "General",
+            Specialty = PracticeSpecialty.GeneralPractice,
             HourlyRate = 60,
             Role = Users.UserRole.Doctor
         };
         return mockDoctor;
     }
     
-    public static Doctors CreateDoctor(string firstname, string lastname, string email, string specialty, float hourlyRate)
+    public static Doctors CreateDoctor(string firstname, string lastname, string email, PracticeSpecialty specialty, float hourlyRate)
     {
         Doctors mockDoctor = new Doctors
         {
@@ -55,6 +55,12 @@ public static class Mocks
             LastName = lastname,
             Email = email,
             PasswordHash = "averysafepassword", 
+            ImagePath = "path/to/image",
+            PracticeName = "Test Practice",
+            PracticeAddress = "123 Test St",
+            PracticePhone = "123-456-7890",
+            Preference = LocationPreference.Hybrid,
+            Biography = "Test Biography",
             Specialty = specialty,
             HourlyRate = hourlyRate,
             Role = Users.UserRole.Doctor
@@ -96,7 +102,17 @@ public static class Mocks
             Password = user.PasswordHash,
             FirstName = user.FirstName,
             LastName = user.LastName,
-            Specialty = user is Doctors doctor ? doctor.Specialty : "",
+            Specialty = user is Doctors doctor ? doctor.Specialty : PracticeSpecialty.GeneralPractice,
+            Status = user is Doctors d ? d.Status : Availability.Available,
+            Biography = "Test Biography",
+            PracticeAddress = "123 Test St",
+            PracticePhone = "123-456-7890",
+            PracticeName = "Test Practice",
+            PracticePostcode = "12345",
+            PracticeState = "NSW",
+            PracticeSuburb = "Sydney",
+            Preference = user is Doctors doc ? doc.Preference : LocationPreference.Hybrid,
+            HourlyRate = user is Doctors doct ? doct.HourlyRate : 0,
             Role = user.Role
         };
     }
@@ -111,6 +127,13 @@ public static class Mocks
     }
 
     public static async Task<HttpResponseMessage> RegisterUser(Users user, HttpClient client)
+    {
+        var registerRequest = CreateRegisterRequest(user);
+        var registerResponse = await client.PostAsJsonAsync("/api/auth/register", registerRequest);
+        return registerResponse;
+    }
+    
+    public static async Task<HttpResponseMessage> RegisterDoctor(Doctors user, HttpClient client)
     {
         var registerRequest = CreateRegisterRequest(user);
         var registerResponse = await client.PostAsJsonAsync("/api/auth/register", registerRequest);

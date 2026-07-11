@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using HealthcareAPI.Models;
+using HealthcareAPI.Tests.Models;
 using HealthcareAPI.Tests.Utils;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,31 +52,45 @@ public class UserTests : IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public async Task GetDoctors_ReturnOK()
     {
-        var mockDoctor1 = Mocks.CreateDoctor("dale", "smith", "dale.smith@test.com", "General", 60);
-        var mockDoctor2 = Mocks.CreateDoctor("emily", "cumberbasch", "emily@test.com", "Pediatric", 40);
-        await Mocks.RegisterUsers([mockDoctor1, mockDoctor2], _client);
-        
-        var response = await _client.GetAsync("/api/get/doctors");
-        var responseContent = await response.Content.ReadFromJsonAsync<List<Doctors>>(_jsonOptions);
-        Assert.NotNull(responseContent);
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);       
-        Assert.True(responseContent.Count > 0);
+        var user = Mocks.CreateUser();
+        var mockDoctor1 = Mocks.CreateDoctor("dal", "smith", "dale.mith@test.com", PracticeSpecialty.GeneralPractice, 60);
+        var mockDoctor2 = Mocks.CreateDoctor("emly", "cumberbasch", "eily@test.com", PracticeSpecialty.Pediatrics, 40);
+        await Mocks.RegisterUsers([user, mockDoctor1, mockDoctor2], _client);
+        var login = await Mocks.LoginUser(user, _client);
+        if (login != null)
+        {
+            var content = await login.Content.ReadFromJsonAsync<LoginResponse>(_jsonOptions);
+            _client.DefaultRequestHeaders.Authorization = 
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", content?.Token);
+            var response = await _client.GetAsync("/api/get/doctors");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);       
+            var responseContent = await response.Content.ReadFromJsonAsync<List<Doctors>>(_jsonOptions);
+            Assert.NotNull(responseContent);
+            Assert.True(responseContent.Count > 0);
+        }
     }
     
     [Fact]
     public async Task GetDoctors_BySpecialty_ReturnOK()
     {
-        var mockDoctor1 = Mocks.CreateDoctor("fred", "smith", "fred@test.com", "General", 60);
-        var mockDoctor2 = Mocks.CreateDoctor("emily", "cumberbasch", "emily@test.com", "Pediatric", 40);
-        var mockDoctor3 = Mocks.CreateDoctor("jane", "doe", "jane@test.com", "General", 60);
-        await Mocks.RegisterUsers([mockDoctor1, mockDoctor2, mockDoctor3], _client);
-
-        const string specialty = "General";  
-        var response = await _client.GetAsync($"/api/get/doctors/{specialty}");
-        var responseContent = await response.Content.ReadFromJsonAsync<List<Doctors>>(_jsonOptions);
-        Assert.NotNull(responseContent);
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);       
-        Assert.True(responseContent.Count == 2);
+        var user = Mocks.CreateUser();
+        var mockDoctor1 = Mocks.CreateDoctor("fred", "smith", "fred@test.com", PracticeSpecialty.GeneralPractice, 60);
+        var mockDoctor2 = Mocks.CreateDoctor("emily", "cumberbasch", "emily@test.com", PracticeSpecialty.Pediatrics, 40);
+        var mockDoctor3 = Mocks.CreateDoctor("jane", "doe", "jane@test.com", PracticeSpecialty.GeneralPractice, 60);
+        await Mocks.RegisterUsers([user, mockDoctor1, mockDoctor2, mockDoctor3], _client);
+        var login = await Mocks.LoginUser(user, _client);
+        if (login != null)
+        {
+            var content = await login.Content.ReadFromJsonAsync<LoginResponse>(_jsonOptions);
+            _client.DefaultRequestHeaders.Authorization = 
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", content?.Token);
+            PracticeSpecialty specialty = PracticeSpecialty.GeneralPractice;  
+            var response = await _client.GetAsync($"/api/get/doctors/{specialty}");
+            var responseContent = await response.Content.ReadFromJsonAsync<List<Doctors>>(_jsonOptions);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);       
+            Assert.NotNull(responseContent);
+            Assert.True(responseContent.Count == 2);
+        }
     }
     
     [Fact]

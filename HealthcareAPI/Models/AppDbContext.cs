@@ -17,14 +17,32 @@ public class AppDbContext : DbContext
             .Property(a => a.Status)
             .HasConversion(
                 v => v.ToString(),
-                v => (Appointments.AppointmentStatus)Enum.Parse(typeof(Appointments.AppointmentStatus), v));
+                v => (Appointments.AppointmentStatus)Enum.Parse(typeof(Appointments.AppointmentStatus), v ?? ""));
         
         modelBuilder.Entity<Users>()
             .Property(u => u.Role)
             .HasConversion(
                 v => v.ToString(),
                 v => (Users.UserRole)Enum.Parse(typeof(Users.UserRole), v));
+        
+        modelBuilder.Entity<Doctors>()
+            .Property(u => u.Specialty)
+            .HasConversion(
+                v => v.ToString(),
+                v => (PracticeSpecialty)Enum.Parse(typeof(PracticeSpecialty), v ?? ""));
+        
+        modelBuilder.Entity<Doctors>()
+            .Property(u => u.Preference)
+            .HasConversion(
+                v => v.ToString(),
+                v => (LocationPreference)Enum.Parse(typeof(LocationPreference), v ?? ""));
 
+        modelBuilder.Entity<Doctors>()
+            .Property(u => u.Status)
+            .HasConversion(
+                v => v.ToString(),
+                v => (Availability)Enum.Parse(typeof(Availability), v ?? ""));
+        
         // 2. Configure Foreign Key relationships.
         // An appointment has ONE patient (User), and a User can have MANY appointments
         modelBuilder.Entity<Appointments>()
@@ -44,5 +62,6 @@ public class AppDbContext : DbContext
     public DbSet<Users> Users => Set<Users>();
     public DbSet<Doctors> Doctors => Set<Doctors>();
     public DbSet<Appointments> Appointments => Set<Appointments>();
+    public DbSet<WaitlistAppointments> WaitlistAppointments => Set<WaitlistAppointments>();
     public DbSet<MedicalRecords> MedicalRecords => Set<MedicalRecords>();
 }

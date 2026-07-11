@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
     {
-        // Safely extract array of origins from appsettings configurations
+        // Safely extract array of origins from app settings configurations
         var allowedOrigins = builder.Configuration
             .GetSection("CorsSettings:AllowedOrigins")
             .Get<string[]>();
@@ -39,7 +39,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Setup a global Json converter to serialize enums as strings
+// Set up a global JSON converter to serialize enums as strings
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());

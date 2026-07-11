@@ -21,7 +21,7 @@ public static class UserEndpoints
             return Results.Ok(doctors);
         }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Doctor").WithSummary("Retrieves all doctors.").WithDescription("Retrieves a list of all doctors from the database.");
 
-        app.MapGet("/api/get/doctors/{specialty}", async (string specialty, AppDbContext context) =>
+        app.MapGet("/api/get/doctors/{specialty}", async (PracticeSpecialty specialty, AppDbContext context) =>
         {  
             var users = await context.Doctors.Where(u => u.Role == Users.UserRole.Doctor && u.Specialty == specialty).ToListAsync();
             if (users.Count == 0)

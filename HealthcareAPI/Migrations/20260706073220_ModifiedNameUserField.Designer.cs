@@ -3,6 +3,7 @@ using System;
 using HealthcareAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthcareAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260706073220_ModifiedNameUserField")]
+    partial class ModifiedNameUserField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.17");
@@ -24,12 +27,6 @@ namespace HealthcareAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("DoctorId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool?>("IsNewPatient")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Location")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("PatientId")

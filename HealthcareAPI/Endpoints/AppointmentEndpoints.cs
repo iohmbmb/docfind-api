@@ -14,6 +14,12 @@ public static class AppointmentEndpoints
             return Results.Ok(appointments);
         }).RequireAuthorization().WithTags("Appointment").WithSummary("Retrieves appointments for a user by ID.").WithDescription("Retrieves a list of appointments from the database for the specified user based on their ID.");
         
+        app.MapGet("/api/get/doctor/{id}/waitlist/appointments", async (Guid id, AppDbContext context) =>
+        {
+            var appointments = await context.WaitlistAppointments.Where(a => a.DoctorId == id).ToListAsync();
+            return Results.Ok(appointments);
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Doctor"}).WithTags("Appointment").WithSummary("Retrieves appointments for a user by ID.").WithDescription("Retrieves a list of appointments from the database for the specified user based on their ID.");
+        
         app.MapGet("/api/get/record/{appointmentId}", async (Guid appointmentId, AppDbContext context) =>
         {
             var records = await context.MedicalRecords.Where(r => r.AppointmentId == appointmentId).ToListAsync();
@@ -23,11 +29,26 @@ public static class AppointmentEndpoints
         app.MapPost("/api/create/appointment", async (Appointments appointments, AppDbContext context) =>
         {
             appointments.Id = Guid.NewGuid();
-            appointments.Status = Appointments.AppointmentStatus.Pending;
+            appointments.Status ??= Appointments.AppointmentStatus.Pending;
             context.Appointments.Add(appointments);
             await context.SaveChangesAsync();
             return Results.Created($"/api/create/appointment", appointments);
-        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Appointment").WithSummary("Creates a new appointment.").WithDescription("Creates a new appointment in the database with the provided information.");
+        }).RequireAuthorization().WithTags("Appointment").WithSummary("Creates a new appointment.").WithDescription("Creates a new appointment in the database with the provided information.");
+        
+        app.MapPost("/api/create/waitlist/appointment", async (Appointments appointments, AppDbContext context) =>
+        {
+            appointments.Id = Guid.NewGuid();
+            appointments.Status = Appointments.AppointmentStatus.Pending;
+            
+            WaitlistAppointments waitlistAppointment = new WaitlistAppointments();
+            waitlistAppointment.Id = Guid.NewGuid();
+            waitlistAppointment.DoctorId = appointments.DoctorId;
+            waitlistAppointment.Appointment = appointments;
+            context.WaitlistAppointments.Add(waitlistAppointment);
+            
+            await context.SaveChangesAsync();
+            return Results.Created($"/api/create/waitlist/appointment", appointments);
+        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Patient"}).WithTags("Appointment").WithSummary("Creates a new appointment in a waitlist.").WithDescription("Creates a new appointment in a wait list in the database with the provided information.");
         
         app.MapPost("/api/create/record", async (MedicalRecords medicalRecords, AppDbContext context) =>
         {

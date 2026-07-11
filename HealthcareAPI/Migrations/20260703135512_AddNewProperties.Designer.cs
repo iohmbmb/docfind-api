@@ -3,6 +3,7 @@ using System;
 using HealthcareAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthcareAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260703135512_AddNewProperties")]
+    partial class AddNewProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.17");
@@ -24,12 +27,6 @@ namespace HealthcareAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("DoctorId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool?>("IsNewPatient")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Location")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("PatientId")
@@ -121,7 +118,7 @@ namespace HealthcareAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("AppointmentId")
+                    b.Property<Guid>("AppointmentId")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("DoctorId")
@@ -144,22 +141,13 @@ namespace HealthcareAPI.Migrations
                     b.Property<float>("HourlyRate")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("PracticeAddress")
+                    b.Property<string>("PracticAddress")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PracticeName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PracticePhone")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PracticePostcode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PracticeState")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PracticeSuburb")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Preference")
@@ -193,7 +181,9 @@ namespace HealthcareAPI.Migrations
                 {
                     b.HasOne("HealthcareAPI.Models.Appointments", "Appointment")
                         .WithMany()
-                        .HasForeignKey("AppointmentId");
+                        .HasForeignKey("AppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Appointment");
                 });

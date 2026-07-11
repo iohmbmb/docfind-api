@@ -7,16 +7,19 @@ using HealthcareAPI.Tests.Models;
 using HealthcareAPI.Tests.Utils;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
+using Xunit.Abstractions;
 
 namespace HealthcareAPI.Tests;
 
 public class AuthTests  : IClassFixture<WebApplicationFactory<Program>>
 {
+    private readonly ITestOutputHelper _testOutputHelper;
     private readonly HttpClient _client;
     private readonly JsonSerializerOptions _jsonOptions; 
     
-    public AuthTests(WebApplicationFactory<Program> factory)
+    public AuthTests(WebApplicationFactory<Program> factory, ITestOutputHelper testOutputHelper)
     {
+        _testOutputHelper = testOutputHelper;
         _client = factory.CreateClient();
         _jsonOptions = new JsonSerializerOptions
         {
@@ -39,9 +42,25 @@ public class AuthTests  : IClassFixture<WebApplicationFactory<Program>>
     {
         var user = Mocks.CreateUser();
         var registerUser = await Mocks.RegisterUser(user, _client);
-        var responseContent = await registerUser.Content.ReadFromJsonAsync<string>(_jsonOptions);
+        var responseContent = await registerUser.Content.ReadFromJsonAsync<Users>(_jsonOptions);
         Assert.Equal(HttpStatusCode.OK, registerUser.StatusCode);       
-        Assert.Equal("Registration successful!", responseContent);
+        var beautifulJsonText = JsonSerializer.Serialize(responseContent, new JsonSerializerOptions { 
+            WriteIndented = true 
+        });
+        _testOutputHelper.WriteLine(beautifulJsonText);
+    }
+    
+    [Fact]
+    public async Task RegisterDoctor_ReturnOK()
+    {
+        var user = Mocks.CreateDoctor("dal", "smith", "dale.mith@test.com", PracticeSpecialty.GeneralPractice, 60);
+        var registerUser = await Mocks.RegisterDoctor(user, _client);
+        var responseContent = await registerUser.Content.ReadFromJsonAsync<Doctors>(_jsonOptions);
+        Assert.Equal(HttpStatusCode.OK, registerUser.StatusCode);       
+        var beautifulJsonText = JsonSerializer.Serialize(responseContent, new JsonSerializerOptions { 
+            WriteIndented = true 
+        });
+        _testOutputHelper.WriteLine(beautifulJsonText);
     }
     
     [Fact]

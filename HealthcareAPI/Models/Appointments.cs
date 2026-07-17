@@ -9,5 +9,4 @@ public partial class Appointments
     public string? Location { get; set; }
     public bool? IsNewPatient { get; set; }
     public AppointmentStatus? Status { get; set; }
-    public string? SymptomsDescription { get; set; }
 }

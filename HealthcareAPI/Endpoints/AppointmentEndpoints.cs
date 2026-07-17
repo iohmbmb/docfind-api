@@ -69,7 +69,6 @@ public static class AppointmentEndpoints
             result.DoctorId = appointment.DoctorId;
             result.ScheduleTime = appointment.ScheduleTime;
             result.Status = appointment.Status;
-            result.SymptomsDescription = appointment.SymptomsDescription;
             
             await context.SaveChangesAsync();
             return Results.Ok();

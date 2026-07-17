@@ -75,7 +75,6 @@ public static class Mocks
             PatientId = userId,
             DoctorId = doctorId,
             ScheduleTime = DateTime.UtcNow.AddDays(1),
-            SymptomsDescription = "Routine Checkup"
         };
         
         return mockAppointment;

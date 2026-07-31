@@ -94,6 +94,8 @@ app.UseHttpsRedirection();
 app.MapAuthEndpoints();
 app.MapUserEndpoints();
 app.MapAppointmentEndpoints();
+app.MapScheduleEndpoints();
+app.MapSearchEndpoints();
 
 app.Run();
 

@@ -3,5 +3,6 @@ namespace HealthcareAPI.Models;
 public enum Availability
 {
     Available,
-    Unavailable
+    Busy,
+    Away
 }

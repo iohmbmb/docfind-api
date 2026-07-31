@@ -18,4 +18,6 @@ public class RegisterRequest
     public string? PracticePostcode { get; set; }
     public string? PracticePhone { get; set; }
     public string? Biography { get; set; }
+    public float? Longitude { get; set; }
+    public float? Latitude { get; set; }
 }

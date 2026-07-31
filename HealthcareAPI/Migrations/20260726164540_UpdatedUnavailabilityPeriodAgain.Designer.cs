@@ -3,6 +3,7 @@ using System;
 using HealthcareAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthcareAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260726164540_UpdatedUnavailabilityPeriodAgain")]
+    partial class UpdatedUnavailabilityPeriodAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.17");
@@ -48,31 +51,6 @@ namespace HealthcareAPI.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Appointments");
-                });
-
-            modelBuilder.Entity("HealthcareAPI.Models.DoctorWorkingHours", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Day")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<Guid>("DoctorId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<TimeOnly>("StartTime")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
-
-                    b.ToTable("DoctorWorkingHours");
                 });
 
             modelBuilder.Entity("HealthcareAPI.Models.MedicalRecords", b =>
@@ -115,8 +93,7 @@ namespace HealthcareAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DoctorId")
-                        .IsUnique();
+                    b.HasIndex("DoctorId");
 
                     b.ToTable("UnavailabilityPeriod");
                 });
@@ -189,12 +166,6 @@ namespace HealthcareAPI.Migrations
                     b.Property<float>("HourlyRate")
                         .HasColumnType("REAL");
 
-                    b.Property<float?>("Latitude")
-                        .HasColumnType("REAL");
-
-                    b.Property<float?>("Longitude")
-                        .HasColumnType("REAL");
-
                     b.Property<string>("PracticeAddress")
                         .HasColumnType("TEXT");
 
@@ -236,6 +207,15 @@ namespace HealthcareAPI.Migrations
                     b.HasOne("HealthcareAPI.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HealthcareAPI.Models.UnavailabilityPeriod", b =>
+                {
+                    b.HasOne("HealthcareAPI.Models.Doctors", null)
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

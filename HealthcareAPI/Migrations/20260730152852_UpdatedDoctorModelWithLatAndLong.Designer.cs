@@ -3,6 +3,7 @@ using System;
 using HealthcareAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthcareAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260730152852_UpdatedDoctorModelWithLatAndLong")]
+    partial class UpdatedDoctorModelWithLatAndLong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.17");
@@ -189,11 +192,11 @@ namespace HealthcareAPI.Migrations
                     b.Property<float>("HourlyRate")
                         .HasColumnType("REAL");
 
-                    b.Property<float?>("Latitude")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Latitude")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<float?>("Longitude")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Longitude")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("PracticeAddress")
                         .HasColumnType("TEXT");

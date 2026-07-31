@@ -68,6 +68,8 @@ public static class AuthEndpoints
                         Preference = request.Preference ?? LocationPreference.Hybrid,
                         Status = request.Status ?? Availability.Available,
                         HourlyRate = request.HourlyRate ?? 0,
+                        Longitude = request.Longitude ?? 0,
+                        Latitude = request.Latitude ?? 0,
                         
                     };
                     if (request.Password != null) doctor.PasswordHash = hasher.HashPassword(doctor, request.Password);
@@ -122,5 +124,22 @@ public static class AuthEndpoints
                 // Return the token payload back to Angular
                 return Results.Ok(new { Token = tokenString, User = new { user.Email, user.FirstName, user.Role } });
             }).WithTags("Auth");
+        
+        app.MapPut("/api/auth/update/password", async (PasswordRequest request, ClaimsPrincipal claimsUser, AppDbContext context) =>
+        {
+            PasswordHasher<Users> hasher = new PasswordHasher<Users>();
+            var userIdString = claimsUser.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = context.Users.FirstOrDefault(u => userIdString != null && u.Id == Guid.Parse(userIdString));
+            
+            if (user == null) return Results.Unauthorized();
+            
+            var verificationResult = hasher.VerifyHashedPassword(user, user.PasswordHash!, request.CurrentPassword);
+            if (verificationResult == PasswordVerificationResult.Failed) return Results.Unauthorized();
+
+            if (request.NewPassword != null) user.PasswordHash = hasher.HashPassword(user, request.NewPassword);
+            await context.SaveChangesAsync();
+            
+            return Results.Ok();
+        }).RequireAuthorization().WithTags("Auth");
     }
 }

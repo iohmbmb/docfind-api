@@ -25,7 +25,7 @@ public static class ScheduleEndpoints
                     .ToListAsync();
                 var orderedHours = hours.OrderBy(d => d.Day == DayOfWeek.Sunday ? 7 : (int)d.Day).ToList();
                 return hours.Count > 0 ? Results.Ok(orderedHours) : Results.NotFound();
-            }).RequireAuthorization()
+            }).RequireAuthorization(new AuthorizeAttribute {Roles="Doctor, Patient"})
             .WithTags("Schedule")
             .WithSummary("Retrieves work hours.")
             .WithDescription("This endpoint retrieves the work hours for a specific doctor.");

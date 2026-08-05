@@ -42,6 +42,12 @@ public class AppDbContext : DbContext
             .HasConversion(
                 v => v.ToString(),
                 v => (Availability)Enum.Parse(typeof(Availability), v ?? ""));
+
+        modelBuilder.Entity<Doctors>()
+            .OwnsOne(e => e.ConsultationType, c =>
+            {
+                c.ToJson();
+            });
         
         // 2. Configure Foreign Key relationships.
         // An appointment has ONE patient (User), and a User can have MANY appointments

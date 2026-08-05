@@ -14,6 +14,7 @@ public class Doctors : Users
     public Availability? Status { get; set; }
     public LocationPreference? Preference { get; set; }
     public PracticeSpecialty? Specialty { get; set; }
+    public ConsultationType? ConsultationType { get; set; }
     
     // Location
     public float? Longitude { get; set; }

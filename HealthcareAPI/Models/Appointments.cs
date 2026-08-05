@@ -8,5 +8,7 @@ public partial class Appointments
     public DateTime ScheduleTime { get; set; }
     public string? Location { get; set; }
     public bool? IsNewPatient { get; set; }
+    public bool? IsForSomeone { get; set; }
+    public string? ConsultationType { get; set; }
     public AppointmentStatus? Status { get; set; }
 }

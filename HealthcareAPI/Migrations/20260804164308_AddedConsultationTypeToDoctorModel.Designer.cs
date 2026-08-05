@@ -3,6 +3,7 @@ using System;
 using HealthcareAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthcareAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260804164308_AddedConsultationTypeToDoctorModel")]
+    partial class AddedConsultationTypeToDoctorModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.17");
@@ -23,14 +26,8 @@ namespace HealthcareAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ConsultationType")
-                        .HasColumnType("TEXT");
-
                     b.Property<Guid>("DoctorId")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool?>("IsForSomeone")
-                        .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsNewPatient")
                         .HasColumnType("INTEGER");
@@ -54,6 +51,25 @@ namespace HealthcareAPI.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("HealthcareAPI.Models.ConsultationType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.PrimitiveCollection<string>("Existing")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.PrimitiveCollection<string>("New")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConsultationType");
                 });
 
             modelBuilder.Entity("HealthcareAPI.Models.DoctorWorkingHours", b =>
@@ -192,6 +208,9 @@ namespace HealthcareAPI.Migrations
                     b.Property<string>("Biography")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("ConsultationTypeId")
+                        .HasColumnType("TEXT");
+
                     b.Property<float>("HourlyRate")
                         .HasColumnType("REAL");
 
@@ -228,6 +247,8 @@ namespace HealthcareAPI.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("TEXT");
 
+                    b.HasIndex("ConsultationTypeId");
+
                     b.HasDiscriminator().HasValue("Doctors");
                 });
 
@@ -257,30 +278,9 @@ namespace HealthcareAPI.Migrations
 
             modelBuilder.Entity("HealthcareAPI.Models.Doctors", b =>
                 {
-                    b.OwnsOne("HealthcareAPI.Models.ConsultationType", "ConsultationType", b1 =>
-                        {
-                            b1.Property<Guid>("DoctorsId")
-                                .HasColumnType("TEXT");
-
-                            b1.PrimitiveCollection<string>("Existing")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.PrimitiveCollection<string>("New")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("DoctorsId");
-
-                            b1.ToTable("Users");
-
-                            b1
-                                .ToJson("ConsultationType")
-                                .HasColumnType("TEXT");
-
-                            b1.WithOwner()
-                                .HasForeignKey("DoctorsId");
-                        });
+                    b.HasOne("HealthcareAPI.Models.ConsultationType", "ConsultationType")
+                        .WithMany()
+                        .HasForeignKey("ConsultationTypeId");
 
                     b.Navigation("ConsultationType");
                 });

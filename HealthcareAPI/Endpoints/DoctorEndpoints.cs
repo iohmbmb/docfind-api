@@ -12,7 +12,7 @@ public static class DoctorEndpoints
         {
             var doctor = context.Doctors.First(d => d.Id == id);
             return Results.Ok(doctor);
-        }).RequireAuthorization(new AuthorizeAttribute {Roles ="Doctor"}).WithTags("Doctor").WithSummary("Retrieves a doctor.").WithDescription("Retrieves a doctor from the database.");
+        }).RequireAuthorization().WithTags("Doctor").WithSummary("Retrieves a doctor.").WithDescription("Retrieves a doctor from the database.");
         
         app.MapGet("/api/get/doctors", async (AppDbContext context) =>
         {

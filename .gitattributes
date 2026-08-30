@@ -1,0 +1,5 @@
+* linguist-language=C#
+
+obj/** linguist-vendored
+bin/** linguist-vendored
+

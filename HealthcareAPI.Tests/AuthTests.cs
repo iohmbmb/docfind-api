@@ -69,12 +69,13 @@ public class AuthTests  : IClassFixture<WebApplicationFactory<Program>>
         var user = Mocks.CreateUser();
         var registerUser = await Mocks.RegisterUser(user, _client);
         Assert.Equal(HttpStatusCode.OK, registerUser.StatusCode);       
-        var responseContent = await registerUser.Content.ReadFromJsonAsync<string>(_jsonOptions);
-        Assert.Equal("Registration successful!", responseContent);
+        var responseContent = await registerUser.Content.ReadFromJsonAsync<Users>(_jsonOptions);
+        Assert.NotNull(responseContent);
+        Assert.Equal(user.Email, responseContent.Email);
 
         var login = await Mocks.LoginUser(user, _client);
         if (login != null)
-        {
+        { 
             Assert.Equal(HttpStatusCode.OK, login.StatusCode);
             var loginResponseContent = await login.Content.ReadFromJsonAsync<LoginResponse>(_jsonOptions);
             Assert.NotNull(loginResponseContent);

@@ -14,6 +14,7 @@ cache:
   variables:
     NUGET_PACKAGES: "$CI_PROJECT_DIR/.nuget/packages"
   before_script:
+    - cd HealthcareAPI
     - dotnet restore
   script:
     - echo "Running .NET Test Suite..."

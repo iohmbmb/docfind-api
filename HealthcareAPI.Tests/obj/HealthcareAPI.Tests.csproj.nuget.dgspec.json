@@ -48,6 +48,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "JunitXml.TestLogger": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[9.0.17, )"
@@ -89,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/4rla7ffirss8jh7plv4bjvgmhnl0ym21-dotnet-sdk-9.0.314/share/dotnet/sdk/9.0.314/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/nix/store/6lxdcwnpw23nyf0m1ipddi6qgiy6ri7g-dotnet-sdk-9.0.317/share/dotnet/sdk/9.0.317/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -183,7 +187,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/4rla7ffirss8jh7plv4bjvgmhnl0ym21-dotnet-sdk-9.0.314/share/dotnet/sdk/9.0.314/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/nix/store/6lxdcwnpw23nyf0m1ipddi6qgiy6ri7g-dotnet-sdk-9.0.317/share/dotnet/sdk/9.0.317/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

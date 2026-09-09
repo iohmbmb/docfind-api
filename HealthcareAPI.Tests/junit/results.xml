@@ -1,0 +1,2610 @@
+<testsuites>
+  <testsuite name="HealthcareAPI.Tests.dll" tests="18" skipped="0" failures="1" errors="0" time="4.2598703" timestamp="2026-09-09T15:03:22" hostname="aegis" id="0" package="HealthcareAPI.Tests.dll">
+    <properties />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="GetAppointment_WithValidId_ReturnsAppointment" time="1.7297074" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="DeleteAppointment_ReturnsOk_WhenAppointmentExist" time="0.1894922" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="CreateAppointment_WithValidData_ReturnsCreatedStatusCode" time="0.1529745" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="CreateMedicalRecord_WithValidData_ReturnsCreatedStatusCode" time="0.1750386" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="UpdateAppointment_WithValidData_ReturnsOkStatusCode" time="0.1745701" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="GetRecord_WithValidAppointmentId_ReturnsRecord" time="0.1661185" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="DeleteRecord_ReturnsOk_WhenMedicalRecordExist" time="0.1622104" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="DeleteAppointment_ReturnsNotFound_WhenAppointmentDoesNotExist" time="0.1047091" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="DeleteAppointment_ReturnsNotFound_WhenMedicalRecordDoesNotExist" time="0.1065995" />
+    <testcase classname="HealthcareAPI.Tests.AppointmentTests" name="UpdateMedicalRecord_WithValidData_ReturnsOkStatusCode" time="0.1633331" />
+    <testcase classname="HealthcareAPI.Tests.UserTests" name="DeleteDoctor_ReturnOK" time="0.1857974" />
+    <testcase classname="HealthcareAPI.Tests.UserTests" name="GetUsers_ReturnOK" time="0.1488109" />
+    <testcase classname="HealthcareAPI.Tests.UserTests" name="DeleteUser_ReturnOK" time="0.0830878" />
+    <testcase classname="HealthcareAPI.Tests.UserTests" name="GetDoctors_BySpecialty_ReturnOK" time="0.2539997" />
+    <testcase classname="HealthcareAPI.Tests.UserTests" name="GetDoctors_ReturnOK" time="0.2004894" />
+    <testcase classname="HealthcareAPI.Tests.AuthTests" name="LoginUser_ReturnOK" time="0.1272010">
+      <failure type="failure" message="System.Text.Json.JsonException : The JSON value could not be converted to System.String. Path: $ | LineNumber: 0 | BytePositionInLine: 1.&#xA;---- System.InvalidOperationException : Cannot get the value of a token type 'StartObject' as a string.">at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack&amp; state, Utf8JsonReader&amp; reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader&amp; reader, T&amp; value, JsonSerializerOptions options, ReadStack&amp; state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState&amp; bufferState, JsonReaderState&amp; jsonReaderState, ReadStack&amp; readStack, T&amp; value)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at HealthcareAPI.Tests.AuthTests.LoginUser_ReturnOK() in /home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/AuthTests.cs:line 72
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+   at System.Text.Json.Utf8JsonReader.GetString()
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader&amp; reader, Type typeToConvert, JsonSerializerOptions options, ReadStack&amp; state, T&amp; value, Boolean&amp; isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader&amp; reader, T&amp; value, JsonSerializerOptions options, ReadStack&amp; state)</failure>
+    </testcase>
+    <testcase classname="HealthcareAPI.Tests.AuthTests" name="RegisterDoctor_ReturnOK" time="0.0704163">
+      <system-out>{
+  "PracticeName": "Test Practice",
+  "PracticeAddress": "123 Test St",
+  "PracticeSuburb": "Sydney",
+  "PracticeState": "NSW",
+  "PracticePostcode": "12345",
+  "PracticePhone": "123-456-7890",
+  "Biography": "Test Biography",
+  "HourlyRate": 60,
+  "Status": 0,
+  "Preference": 2,
+  "Specialty": 0,
+  "ConsultationType": null,
+  "Longitude": 0,
+  "Latitude": 0,
+  "Id": "a331f206-9e6c-4d10-b89f-298dc4df5175",
+  "Email": "dale.mith@test.com",
+  "PasswordHash": "AQAAAAIAAYagAAAAEKoJsI55TiGqQlzlFrK5rFFswcuc3VyoYjuQwqFLvRwK1ZoK8LDlooz4noTTSQgBxA==",
+  "FirstName": "dal",
+  "LastName": "smith",
+  "ImagePath": null,
+  "Role": 1
+}
+
+</system-out>
+    </testcase>
+    <testcase classname="HealthcareAPI.Tests.AuthTests" name="RegisterUser_ReturnOK" time="0.0653144">
+      <system-out>{
+  "Id": "49ebd581-947c-4276-a1d5-ac51696b712e",
+  "Email": "john@test.com",
+  "PasswordHash": "AQAAAAIAAYagAAAAEBG6JHz1bd/m2hhRHisOhFRaLaHM6JOusUTg2qeOIeK71B9dl1ykJpd6YhvDvZqwSQ==",
+  "FirstName": "John",
+  "LastName": "Doe",
+  "ImagePath": null,
+  "Role": 0
+}
+
+</system-out>
+    </testcase>
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 9.0.19)
+[xUnit.net 00:00:00.06]   Discovering: HealthcareAPI.Tests
+[xUnit.net 00:00:00.09]   Discovered:  HealthcareAPI.Tests
+[xUnit.net 00:00:00.09]   Starting:    HealthcareAPI.Tests
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConsultationType", "a"."DoctorId", "a"."IsForSomeone", "a"."IsNewPatient", "a"."Location", "a"."PatientId", "a"."ScheduleTime", "a"."Status"
+      FROM "Appointments" AS "a"
+      WHERE "a"."PatientId" = @__id_0 OR "a"."DoctorId" = @__id_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConsultationType", "a"."DoctorId", "a"."IsForSomeone", "a"."IsNewPatient", "a"."Location", "a"."PatientId", "a"."ScheduleTime", "a"."Status"
+      FROM "Appointments" AS "a"
+      WHERE "a"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Appointments"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 8), @p3='?' (Size = 12), @p4='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "MedicalRecords" ("Id", "AppointmentId", "Filename", "Filepath", "UploadedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConsultationType", "a"."DoctorId", "a"."IsForSomeone", "a"."IsNewPatient", "a"."Location", "a"."PatientId", "a"."ScheduleTime", "a"."Status"
+      FROM "Appointments" AS "a"
+      WHERE "a"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      UPDATE "Appointments" SET "Status" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConsultationType", "a"."DoctorId", "a"."IsForSomeone", "a"."IsNewPatient", "a"."Location", "a"."PatientId", "a"."ScheduleTime", "a"."Status"
+      FROM "Appointments" AS "a"
+      WHERE "a"."PatientId" = @__id_0 OR "a"."DoctorId" = @__id_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 8), @p3='?' (Size = 12), @p4='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "MedicalRecords" ("Id", "AppointmentId", "Filename", "Filepath", "UploadedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__appointmentId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."AppointmentId", "m"."Filename", "m"."Filepath", "m"."UploadedAt"
+      FROM "MedicalRecords" AS "m"
+      WHERE "m"."AppointmentId" = @__appointmentId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 8), @p3='?' (Size = 12), @p4='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "MedicalRecords" ("Id", "AppointmentId", "Filename", "Filepath", "UploadedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."AppointmentId", "m"."Filename", "m"."Filepath", "m"."UploadedAt"
+      FROM "MedicalRecords" AS "m"
+      WHERE "m"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "MedicalRecords"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConsultationType", "a"."DoctorId", "a"."IsForSomeone", "a"."IsNewPatient", "a"."Location", "a"."PatientId", "a"."ScheduleTime", "a"."Status"
+      FROM "Appointments" AS "a"
+      WHERE "a"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."AppointmentId", "m"."Filename", "m"."Filepath", "m"."UploadedAt"
+      FROM "MedicalRecords" AS "m"
+      WHERE "m"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?' (DbType = Guid), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Guid), @p7='?' (DbType = DateTime), @p8='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Appointments" ("Id", "ConsultationType", "DoctorId", "IsForSomeone", "IsNewPatient", "Location", "PatientId", "ScheduleTime", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 8), @p3='?' (Size = 12), @p4='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "MedicalRecords" ("Id", "AppointmentId", "Filename", "Filepath", "UploadedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."AppointmentId", "m"."Filename", "m"."Filepath", "m"."UploadedAt"
+      FROM "MedicalRecords" AS "m"
+      WHERE "m"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (Size = 8)], CommandType='Text', CommandTimeout='30']
+      UPDATE "MedicalRecords" SET "Filename" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__appointmentId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "m"."Id", "m"."AppointmentId", "m"."Filename", "m"."Filepath", "m"."UploadedAt"
+      FROM "MedicalRecords" AS "m"
+      WHERE "m"."AppointmentId" = @__appointmentId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 19)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 19), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Users"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 12)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 12)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 12), @p3='?' (Size = 3), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 12)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 12)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 12), @p3='?' (Size = 3), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors' AND "u"."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "Users"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 13), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 14), @p4='?' (Size = 5), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 11), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 10), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 13), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 3), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__specialty_0='?' (Size = 15)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors' AND "u"."Role" = 'Doctor' AND "u"."Specialty" = @__specialty_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 18), @p4='?' (Size = 3), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 13), @p4='?' (Size = 4), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 11), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 10), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Email" = @__request_Email_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "u"."Id", "u"."Discriminator", "u"."Email", "u"."FirstName", "u"."ImagePath", "u"."LastName", "u"."PasswordHash", "u"."Role", "u"."Biography", "u"."HourlyRate", "u"."Latitude", "u"."Longitude", "u"."PracticeAddress", "u"."PracticeName", "u"."PracticePhone", "u"."PracticePostcode", "u"."PracticeState", "u"."PracticeSuburb", "u"."Preference", "u"."Specialty", "u"."Status", "u"."ConsultationType"
+      FROM "Users" AS "u"
+      WHERE "u"."Discriminator" = 'Doctors'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+[xUnit.net 00:00:04.28]       System.Text.Json.JsonException : The JSON value could not be converted to System.String. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+[xUnit.net 00:00:04.28]       ---- System.InvalidOperationException : Cannot get the value of a token type 'StartObject' as a string.
+[xUnit.net 00:00:04.28]       Stack Trace:
+[xUnit.net 00:00:04.28]            at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack&amp; state, Utf8JsonReader&amp; reader, Exception ex)
+[xUnit.net 00:00:04.28]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader&amp; reader, T&amp; value, JsonSerializerOptions options, ReadStack&amp; state)
+[xUnit.net 00:00:04.28]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState&amp; bufferState, JsonReaderState&amp; jsonReaderState, ReadStack&amp; readStack, T&amp; value)
+[xUnit.net 00:00:04.28]            at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync(Stream utf8Json, CancellationToken cancellationToken)
+[xUnit.net 00:00:04.28]            at System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsyncCore[T](HttpContent content, JsonSerializerOptions options, CancellationToken cancellationToken)
+[xUnit.net 00:00:04.28]         /home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/AuthTests.cs(72,0): at HealthcareAPI.Tests.AuthTests.LoginUser_ReturnOK()
+[xUnit.net 00:00:04.28]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:04.28]         ----- Inner Stack Trace -----
+[xUnit.net 00:00:04.28]            at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+[xUnit.net 00:00:04.28]            at System.Text.Json.Utf8JsonReader.GetString()
+[xUnit.net 00:00:04.28]            at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader&amp; reader, Type typeToConvert, JsonSerializerOptions options, ReadStack&amp; state, T&amp; value, Boolean&amp; isPopulatedValue)
+[xUnit.net 00:00:04.28]            at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader&amp; reader, T&amp; value, JsonSerializerOptions options, ReadStack&amp; state)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 14), @p2='?' (Size = 7), @p3='?' (Size = 18), @p4='?' (Size = 3), @p5='?' (DbType = Single), @p6='?', @p7='?' (Size = 5), @p8='?' (DbType = Single), @p9='?' (DbType = Single), @p10='?' (Size = 84), @p11='?' (Size = 11), @p12='?' (Size = 13), @p13='?' (Size = 12), @p14='?' (Size = 5), @p15='?' (Size = 3), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (Size = 6), @p19='?' (Size = 15), @p20='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Biography", "Discriminator", "Email", "FirstName", "HourlyRate", "ImagePath", "LastName", "Latitude", "Longitude", "PasswordHash", "PracticeAddress", "PracticeName", "PracticePhone", "PracticePostcode", "PracticeState", "PracticeSuburb", "Preference", "Role", "Specialty", "Status")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      PRAGMA journal_mode = 'wal';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "DoctorWorkingHours" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_DoctorWorkingHours" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "Day" INTEGER NOT NULL,
+          "StartTime" TEXT NOT NULL,
+          "EndTime" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "MedicalRecords" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_MedicalRecords" PRIMARY KEY,
+          "AppointmentId" TEXT NOT NULL,
+          "Filename" TEXT NULL,
+          "Filepath" TEXT NULL,
+          "UploadedAt" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "UnavailabilityPeriod" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_UnavailabilityPeriod" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "StartDate" TEXT NULL,
+          "EndDate" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Users" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+          "Email" TEXT NULL,
+          "PasswordHash" TEXT NULL,
+          "FirstName" TEXT NULL,
+          "LastName" TEXT NULL,
+          "ImagePath" TEXT NULL,
+          "Role" TEXT NOT NULL,
+          "Discriminator" TEXT NOT NULL,
+          "PracticeName" TEXT NULL,
+          "PracticeAddress" TEXT NULL,
+          "PracticeSuburb" TEXT NULL,
+          "PracticeState" TEXT NULL,
+          "PracticePostcode" TEXT NULL,
+          "PracticePhone" TEXT NULL,
+          "Biography" TEXT NULL,
+          "HourlyRate" REAL NULL,
+          "Status" TEXT NULL,
+          "Preference" TEXT NULL,
+          "Specialty" TEXT NULL,
+          "Longitude" REAL NULL,
+          "Latitude" REAL NULL,
+          "ConsultationType" TEXT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "Appointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_Appointments" PRIMARY KEY,
+          "PatientId" TEXT NOT NULL,
+          "DoctorId" TEXT NOT NULL,
+          "ScheduleTime" TEXT NOT NULL,
+          "Location" TEXT NULL,
+          "IsNewPatient" INTEGER NULL,
+          "IsForSomeone" INTEGER NULL,
+          "ConsultationType" TEXT NULL,
+          "Status" TEXT NULL,
+          CONSTRAINT "FK_Appointments_Users_DoctorId" FOREIGN KEY ("DoctorId") REFERENCES "Users" ("Id") ON DELETE CASCADE,
+          CONSTRAINT "FK_Appointments_Users_PatientId" FOREIGN KEY ("PatientId") REFERENCES "Users" ("Id") ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE "WaitlistAppointments" (
+          "Id" TEXT NOT NULL CONSTRAINT "PK_WaitlistAppointments" PRIMARY KEY,
+          "DoctorId" TEXT NOT NULL,
+          "AppointmentId" TEXT NULL,
+          CONSTRAINT "FK_WaitlistAppointments_Appointments_AppointmentId" FOREIGN KEY ("AppointmentId") REFERENCES "Appointments" ("Id")
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_DoctorId" ON "Appointments" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_Appointments_PatientId" ON "Appointments" ("PatientId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_DoctorWorkingHours_DoctorId" ON "DoctorWorkingHours" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX "IX_UnavailabilityPeriod_DoctorId" ON "UnavailabilityPeriod" ("DoctorId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX "IX_WaitlistAppointments_AppointmentId" ON "WaitlistAppointments" ("AppointmentId");
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__request_Email_0='?' (Size = 13)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Users" AS "u"
+          WHERE "u"."Discriminator" = 'Doctors' AND "u"."Email" = @__request_Email_0)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 5), @p2='?' (Size = 13), @p3='?' (Size = 4), @p4='?', @p5='?' (Size = 3), @p6='?' (Size = 84), @p7='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Users" ("Id", "Discriminator", "Email", "FirstName", "ImagePath", "LastName", "PasswordHash", "Role")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+[xUnit.net 00:00:04.42]   Finished:    HealthcareAPI.Tests
+</system-out>
+    <system-err>Error - [xUnit.net 00:00:04.28]     HealthcareAPI.Tests.AuthTests.LoginUser_ReturnOK [FAIL]
+</system-err>
+  </testsuite>
+</testsuites>

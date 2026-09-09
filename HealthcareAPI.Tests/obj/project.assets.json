@@ -8,6 +8,12 @@
           "build/netstandard2.0/coverlet.collector.targets": {}
         }
       },
+      "JunitXml.TestLogger/8.0.0": {
+        "type": "package",
+        "build": {
+          "build/netstandard2.0/JUnitXml.TestLogger.props": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/9.0.17": {
         "type": "package",
         "dependencies": {
@@ -1657,6 +1663,23 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.2.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "JunitXml.TestLogger/8.0.0": {
+      "sha512": "rO2ugKcbVy8SHNKeqfX/DshUcTtolnEUwMKehVB6gh5/YoL+U07zoACCyGRvgMtzq7fr9o6GLkXOmVj9WMgx+w==",
+      "type": "package",
+      "path": "junitxml.testlogger/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.JUnit.Xml.TestLogger.dll",
+        "build/_common/Spekt.TestLogger.dll",
+        "build/netstandard2.0/JUnitXml.TestLogger.props",
+        "docs/CHANGELOG.md",
+        "docs/README.md",
+        "junitxml.testlogger.8.0.0.nupkg.sha512",
+        "junitxml.testlogger.nuspec",
+        "packageIcon.png"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/9.0.17": {
@@ -3624,6 +3647,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "HealthcareAPI >= 1.0.0",
+      "JunitXml.TestLogger >= 8.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.17",
       "Microsoft.AspNetCore.Mvc.Testing >= 9.0.17",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
@@ -3655,6 +3679,7 @@
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "projectReferences": {
             "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj": {
@@ -3677,8 +3702,13 @@
     },
     "frameworks": {
       "net9.0": {
+        "framework": "net9.0",
         "targetAlias": "net9.0",
         "dependencies": {
+          "JunitXml.TestLogger": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[9.0.17, )"
@@ -3720,7 +3750,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/nix/store/4rla7ffirss8jh7plv4bjvgmhnl0ym21-dotnet-sdk-9.0.314/share/dotnet/sdk/9.0.314/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/nix/store/6lxdcwnpw23nyf0m1ipddi6qgiy6ri7g-dotnet-sdk-9.0.317/share/dotnet/sdk/9.0.317/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

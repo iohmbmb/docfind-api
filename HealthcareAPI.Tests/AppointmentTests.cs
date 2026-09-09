@@ -7,9 +7,9 @@ using HealthcareAPI.Tests.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using HealthcareAPI.Tests.Utils;
+[assembly: CollectionBehavior(DisableTestParallelization = true)] // Force every tests to run in sequence and not depend on the shared state. Avoid multiple tests running at the same time and falling.
 
 namespace HealthcareAPI.Tests;
-
 public class AppointmentTests : IClassFixture<WebApplicationFactory<Program>>
 {
     private readonly HttpClient _client;

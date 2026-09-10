@@ -9,7 +9,7 @@ public static class Mocks
     {
         Users mockUser = new Users 
         {
-            Id = new Guid(), 
+            Id = Guid.NewGuid(), 
             FirstName = "John", 
             LastName = "Doe", 
             Email = "john@test.com", 

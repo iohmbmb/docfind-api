@@ -1,27 +1,17 @@
 stages:
   - test
 
-cache:
-  key:
-    files:
-      - "**/*.csproj"
-  paths:
-    - .nuget/packages/
-
 .test_template:
   stage: test
-  image: mcr.microsoft.com/dotnet/sdk:9.0
-  variables:
-    NUGET_PACKAGES: "$CI_PROJECT_DIR/.nuget/packages"
-  before_script:
-    - cd HealthcareAPI
-    - dotnet restore
+  image: docker:lastest
+  services:
+    - name: docker:dind
+      command: ["--mtu=1300"]
   script:
-    - echo "Running .NET Test Suite..."
-    - mkdir -p junit
-    - dotnet test --no-restore --logger:"junit;LogFilePath=$CI_PROJECT_DIR/junit/results.xml"
+    - echo "Building and running tests inside isolated container..."
+    - docker build -f Dockerfile.testing -t backend-tests .
+    - docker run --name test-runner -e "JwtSettings__Secret=SuperSecretTestingSigningKey12345!" -v $(pwd)/junit:/app/junit backend-tests
   artifacts:
-    name: "backend-test-results-$CI_COMMIT_REF_SLUG"
     when: always
     paths:
       - junit/

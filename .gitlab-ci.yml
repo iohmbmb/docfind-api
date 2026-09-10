@@ -3,7 +3,7 @@ stages:
 
 .test_template:
   stage: test
-  image: docker:lastest
+  image: docker:latest
   services:
     - name: docker:dind
       command: ["--mtu=1300"]

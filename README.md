@@ -60,7 +60,7 @@ records, and appointment scheduling using an optimized SQLite database.
 	`https://localhost:7173/scalar`
 
 ## 🧪 Testing
-We use a Docker-based approach to ensure tests run in an isolated 
+I use a Docker-based approach to ensure tests run in an isolated 
 environment with consistent parameters. To run the test suite, use the 
 provided bash script:
 

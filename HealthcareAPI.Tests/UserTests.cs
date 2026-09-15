@@ -34,6 +34,16 @@ public class UserTests : IClassFixture<WebApplicationFactory<Program>>
         db.Database.EnsureCreated();
     }
     
+
+    [Fact]
+    public async Task GetSingleUser_ReturnOK()
+    {
+        var mockUser = Mocks.CreateUser();
+        await Mocks.RegisterUser(mockUser, _client);
+        var response = await _client.GetAsync($"/api/get/user/{mockUser.Id}");
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);       
+    }
+    
     [Fact]
     public async Task GetUsers_ReturnOK()
     {
@@ -132,5 +142,4 @@ public class UserTests : IClassFixture<WebApplicationFactory<Program>>
         if (refreshedResponseContent != null) Assert.Empty(refreshedResponseContent);
         Assert.Equal(HttpStatusCode.OK, refreshedResponse.StatusCode);
     }
-    
 }

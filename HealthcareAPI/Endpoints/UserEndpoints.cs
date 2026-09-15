@@ -16,6 +16,12 @@ public static class UserEndpoints
             return Results.Ok(users);
         }).WithTags("User").WithSummary("Retrieves all users.").WithDescription("Retrieves a list of all users from the database.");
         
+        app.MapGet("/api/get/user/{id}", async (Guid id, AppDbContext context) =>
+        {
+            var user = await context.Users.FindAsync(id);
+            return Results.Ok(user);
+        }).WithTags("User").WithSummary("Retrieve a specific user.").WithDescription("Retrieve a specific users from the database.");
+        
         app.MapDelete("/api/delete/user/{id}", async (Guid id, AppDbContext context) =>
         {
             var user = await context.Users.FindAsync(id);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iQsosp726KM=",
+  "dgSpecHash": "P1FM2ilZsrw=",
   "success": true,
-  "projectFilePath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+  "projectFilePath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
   "expectedPackageFiles": [
     "/home/iohannes/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
     "/home/iohannes/.nuget/packages/junitxml.testlogger/8.0.0/junitxml.testlogger.8.0.0.nupkg.sha512",

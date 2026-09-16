@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj": {}
+    "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj": {}
   },
   "projects": {
-    "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj": {
+    "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+        "projectUniqueName": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
         "projectName": "HealthcareAPI.Tests",
-        "projectPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+        "projectPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
         "packagesPath": "/home/iohannes/.nuget/packages/",
-        "outputPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/obj/",
+        "outputPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/iohannes/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
             "framework": "net9.0",
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj": {
-                "projectPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj"
+              "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj": {
+                "projectPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj"
               }
             }
           }
@@ -99,14 +99,14 @@
         }
       }
     },
-    "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj": {
+    "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj",
+        "projectUniqueName": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj",
         "projectName": "HealthcareAPI",
-        "projectPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj",
+        "projectPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj",
         "packagesPath": "/home/iohannes/.nuget/packages/",
-        "outputPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/obj/",
+        "outputPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/iohannes/.nuget/NuGet/NuGet.Config"

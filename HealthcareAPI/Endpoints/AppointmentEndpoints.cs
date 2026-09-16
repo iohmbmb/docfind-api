@@ -11,6 +11,10 @@ public static class AppointmentEndpoints
         app.MapGet("/api/get/user/{id}/appointments", async (Guid id, AppDbContext context) =>
         {
             var appointments = await context.Appointments.Where(a => a.PatientId == id || a.DoctorId == id).ToListAsync();
+            foreach (var appointment in appointments.Where(appointment => appointment.ScheduleTime < DateTime.Now && appointment.Status != Appointments.AppointmentStatus.Confirmed))
+            {
+                appointment.Status = Appointments.AppointmentStatus.Cancelled;
+            }
             return Results.Ok(appointments);
         }).RequireAuthorization().WithTags("Appointment").WithSummary("Retrieves appointments for a user by ID.").WithDescription("Retrieves a list of appointments from the database for the specified user based on their ID.");
         

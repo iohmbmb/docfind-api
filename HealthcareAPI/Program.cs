@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json.Serialization;
+using HealthcareAPI.DataSeeders;
 using HealthcareAPI.Endpoints;
 using HealthcareAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -77,6 +78,7 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureCreated(); // Creates the file and tables on the fly
+    MedicalDataSeeder.SeedMedicalSystem(db);
 }
 
 app.UseCors("AllowAngularApp");

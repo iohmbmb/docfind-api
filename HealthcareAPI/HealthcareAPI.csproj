@@ -9,6 +9,7 @@
   </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bogus" Version="35.6.5" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.17" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.17" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.16" />

@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net9.0": {
+      "Bogus/35.6.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "coverlet.collector/6.0.2": {
         "type": "package",
         "build": {
@@ -1575,6 +1588,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "Bogus": "35.6.5",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.17",
           "Microsoft.AspNetCore.Mvc.Testing": "9.0.17",
           "Microsoft.AspNetCore.OpenApi": "9.0.16",
@@ -1595,6 +1609,27 @@
     }
   },
   "libraries": {
+    "Bogus/35.6.5": {
+      "sha512": "2FGZn+aAVHjmCgClgmGkTDBVZk0zkLvAKGaxEf5JL6b3i9JbHTE4wnuY4vHCuzlCmJdU6VZjgDfHwmYkQF8VAA==",
+      "type": "package",
+      "path": "bogus/35.6.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "bogus.128.png",
+        "bogus.35.6.5.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/net6.0/Bogus.dll",
+        "lib/net6.0/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
     "coverlet.collector/6.0.2": {
       "sha512": "bJShQ6uWRTQ100ZeyiMqcFlhP7WJ+bCuabUs885dJiBEzMsJMSFr7BOyeCw4rgvQokteGi5rKQTlkhfQPUXg2A==",
       "type": "package",
@@ -3662,11 +3697,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+      "projectUniqueName": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
       "projectName": "HealthcareAPI.Tests",
-      "projectPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
+      "projectPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/HealthcareAPI.Tests.csproj",
       "packagesPath": "/home/iohannes/.nuget/packages/",
-      "outputPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI.Tests/obj/",
+      "outputPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/iohannes/.nuget/NuGet/NuGet.Config"
@@ -3682,8 +3717,8 @@
           "framework": "net9.0",
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj": {
-              "projectPath": "/home/iohannes/Projects/dotnet/HealthcareApi/HealthcareAPI/HealthcareAPI.csproj"
+            "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj": {
+              "projectPath": "/home/iohannes/Projects/dotnet/Healthcare/HealthcareAPI/HealthcareAPI.csproj"
             }
           }
         }

@@ -7,4 +7,5 @@ public class DoctorWorkingHours
     public DayOfWeek Day { get; set; }
     public TimeOnly StartTime { get; set; }
     public TimeOnly EndTime { get; set; }
+    public bool IsMock { get; set; }
 }

@@ -20,4 +20,5 @@ public class RegisterRequest
     public string? Biography { get; set; }
     public float? Longitude { get; set; }
     public float? Latitude { get; set; }
+    public bool? IsMock { get; set; }
 }

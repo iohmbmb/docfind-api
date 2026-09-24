@@ -59,10 +59,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             .WithMany()
             .HasForeignKey(a => a.DoctorId) // Make sure this property exists in your Appointments class!
             .OnDelete(DeleteBehavior.Cascade);
-        
+
         modelBuilder.Entity<UnavailabilityPeriod>()
-            .HasIndex(x => x.DoctorId)
-            .IsUnique();
+            .HasIndex(x => x.DoctorId);
 
         modelBuilder.Entity<DoctorWorkingHours>()
             .HasIndex(x => x.DoctorId);

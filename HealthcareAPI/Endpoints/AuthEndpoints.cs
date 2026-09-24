@@ -70,6 +70,7 @@ public static class AuthEndpoints
                         HourlyRate = request.HourlyRate ?? 0,
                         Longitude = request.Longitude ?? 0,
                         Latitude = request.Latitude ?? 0,
+                        IsMock = request.IsMock ?? false
                     };
                     if (request.Password != null) doctor.PasswordHash = hasher.HashPassword(doctor, request.Password);
                     ret = doctor;

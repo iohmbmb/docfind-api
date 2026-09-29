@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using HealthcareAPI.Models;
+using Xunit.Sdk;
 
 namespace HealthcareAPI.Tests.Utils;
 
@@ -9,7 +10,6 @@ public static class Mocks
     {
         Users mockUser = new Users 
         {
-            Id = Guid.NewGuid(), 
             FirstName = "John", 
             LastName = "Doe", 
             Email = "john@test.com", 
@@ -40,8 +40,21 @@ public static class Mocks
             LastName = "Smith",
             Email = "dale.smith@test.com",
             PasswordHash = "averysafepassword", 
+            ImagePath = "path/to/image",
+            PracticeName = "Test Practice",
+            PracticePostcode = "12345",
+            PracticeAddress = "123 Test St",
+            PracticePhone = "123-456-7890",
+            PracticeState = "NSW",
+            PracticeSuburb = "Sydney",
+            Preference = LocationPreference.Hybrid,
+            Biography = "Test Biography",
             Specialty = PracticeSpecialty.GeneralPractice,
             HourlyRate = 60,
+            Status = Availability.Available,
+            Latitude = 48.8130f,
+            Longitude = 2.3882f,
+            IsMock = false,
             Role = Users.UserRole.Doctor
         };
         return mockDoctor;
@@ -57,12 +70,19 @@ public static class Mocks
             PasswordHash = "averysafepassword", 
             ImagePath = "path/to/image",
             PracticeName = "Test Practice",
+            PracticePostcode = "12345",
             PracticeAddress = "123 Test St",
             PracticePhone = "123-456-7890",
+            PracticeState = "NSW",
+            PracticeSuburb = "Sydney",
             Preference = LocationPreference.Hybrid,
             Biography = "Test Biography",
             Specialty = specialty,
             HourlyRate = hourlyRate,
+            Status = Availability.Available,
+            Latitude = 48.8130f,
+            Longitude = 2.3882f,
+            IsMock = false,
             Role = Users.UserRole.Doctor
         };
         return mockDoctor;
@@ -93,6 +113,33 @@ public static class Mocks
         return mockRecord;
     }
 
+    public static UnavailabilityPeriod CreateUnavailabilityPeriodFor(Guid id)
+    {
+        var today = DateOnly.FromDateTime(DateTime.UtcNow);
+        var period = new UnavailabilityPeriod()
+        {
+            DoctorId = id,
+            StartDate = today.AddDays(1),
+            EndDate = today.AddDays(2),
+            IsMock = false
+        };
+        return period;
+    }
+
+    public static List<DoctorWorkingHours> CreateDoctorWorkingHoursFor(Guid id, DayOfWeek day)
+    {
+        var ret = new List<DoctorWorkingHours>();
+        var workHours = new DoctorWorkingHours()
+        {
+            DoctorId = id,
+            Day = day,
+            StartTime = TimeOnly.FromTimeSpan(TimeSpan.FromHours(9)),
+            EndTime = TimeOnly.FromTimeSpan(TimeSpan.FromHours(17))
+        };
+        ret.Add(workHours);
+        return ret;
+    }
+
     private static RegisterRequest CreateRegisterRequest<T>(T user) where T : Users
     {
         return new RegisterRequest
@@ -110,6 +157,8 @@ public static class Mocks
             PracticePostcode = "12345",
             PracticeState = "NSW",
             PracticeSuburb = "Sydney",
+            Latitude = user is Doctors doce ? doce.Latitude : 0,
+            Longitude = user is Doctors docto ? docto.Longitude : 0,
             Preference = user is Doctors doc ? doc.Preference : LocationPreference.Hybrid,
             HourlyRate = user is Doctors doct ? doct.HourlyRate : 0,
             Role = user.Role
@@ -148,11 +197,34 @@ public static class Mocks
 
     }
     
+    public static async Task<List<HttpResponseMessage>> RegisterDoctors(List<Doctors> doctors, HttpClient client)
+    {
+        var ret = new List<HttpResponseMessage>();
+        foreach (var registerRequest in doctors.Select(CreateRegisterRequest))
+        {
+            ret.Add(await client.PostAsJsonAsync("/api/auth/register", registerRequest));
+        }
+
+        return ret;
+    }
+    
     public static async Task<HttpResponseMessage?> LoginUser(Users user, HttpClient client)
     {
         if (user is not { Email: not null, PasswordHash: not null }) return null;
         var loginRequest = CreateLoginRequest(user.Email, user.PasswordHash);
         var loginResponse = await client.PostAsJsonAsync("/api/auth/login", loginRequest);
         return loginResponse;
+    }
+    
+    public static async Task<HttpResponseMessage?> CreateUnavailabilityPeriod(Guid docId, UnavailabilityPeriod period, HttpClient client)
+    {
+        var response = await client.PostAsJsonAsync($"/api/schedule/post/{docId}/absence", period);
+        return response;
+    }
+    
+    public static async Task<HttpResponseMessage?> CreateDoctorWorkHours(Guid docId, List<DoctorWorkingHours> workHours, HttpClient client)
+    {
+        var response = await client.PostAsJsonAsync($"/api/schedule/post/{docId}/workhours", workHours);
+        return response;
     }
 }

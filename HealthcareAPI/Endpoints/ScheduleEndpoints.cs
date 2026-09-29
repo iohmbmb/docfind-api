@@ -12,9 +12,8 @@ public static class ScheduleEndpoints
         app.MapGet("/api/schedule/get/{id}/absence", (Guid id, AppDbContext context) =>
             {
                 var absencePeriod = context.UnavailabilityPeriod.FirstOrDefault(u => u.DoctorId == id);
-                return absencePeriod == null ? Results.NotFound() : Results.Ok(absencePeriod);
-            }).RequireAuthorization(new AuthorizeAttribute {Roles="Doctor"})
-            .WithTags("Schedule")
+                return absencePeriod == null ? Results.Empty : Results.Ok(absencePeriod);
+            }).WithTags("Schedule")
             .WithSummary("Retrieves absence periods.")
             .WithDescription("This endpoint retrieves the absence periods for a specific doctor.");
         

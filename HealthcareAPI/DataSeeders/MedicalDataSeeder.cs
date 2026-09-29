@@ -48,7 +48,7 @@ public static class MedicalDataSeeder
                 f => f.PickRandom(new[] { Availability.Available, Availability.Away, Availability.Busy }))
             .RuleFor(d => d.ConsultationType,
                 f => new ConsultationType() { New = newPatientOptions, Existing = existingPatientOptions })
-            .RuleFor(d => d.ImagePath, f => f.Internet.Avatar())
+            .RuleFor(d => d.ImagePath, (f, d) => $"https://eu.ui-avatars.com/api/?name={d.FirstName}+{d.LastName}&background=random")
             .RuleFor(d => d.PracticePhone, f => f.Phone.PhoneNumber("01 ## ## ## ##"))
             .RuleFor(d => d.Biography, f => f.Lorem.Paragraph(10))
             .FinishWith((f, d) =>

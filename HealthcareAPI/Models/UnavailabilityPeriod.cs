@@ -6,5 +6,5 @@ public class UnavailabilityPeriod
     public Guid DoctorId { get; set; }
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
-    public bool IsMock { get; set; }
+    public bool? IsMock { get; set; }
 }

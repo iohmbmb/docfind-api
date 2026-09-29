@@ -21,5 +21,6 @@ public class Doctors : Users
     public float? Latitude { get; set; }
     
     public bool? IsMock { get; set; }
+    public bool? IsUnavailable { get; set; }
     
 }

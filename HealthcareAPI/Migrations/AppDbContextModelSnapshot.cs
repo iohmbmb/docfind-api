@@ -71,7 +71,7 @@ namespace HealthcareAPI.Migrations
                     b.Property<TimeOnly>("EndTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsMock")
+                    b.Property<bool?>("IsMock")
                         .HasColumnType("INTEGER");
 
                     b.Property<TimeOnly>("StartTime")
@@ -119,7 +119,7 @@ namespace HealthcareAPI.Migrations
                     b.Property<DateOnly>("EndDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsMock")
+                    b.Property<bool?>("IsMock")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateOnly>("StartDate")
@@ -201,6 +201,9 @@ namespace HealthcareAPI.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<bool?>("IsMock")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool?>("IsUnavailable")
                         .HasColumnType("INTEGER");
 
                     b.Property<float?>("Latitude")

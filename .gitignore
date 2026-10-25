@@ -1,0 +1,5 @@
+shell.nix
+.envrc
+.direnv
+HealthcareAPI.Tests/obj/
+healthcare.db

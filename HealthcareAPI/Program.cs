@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -99,6 +101,26 @@ app.MapDoctorEndpoints();
 app.MapAppointmentEndpoints();
 app.MapScheduleEndpoints();
 app.MapSearchEndpoints();
+
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    var addresses = app.Services
+        .GetRequiredService<IServer>()
+        .Features
+        .Get<IServerAddressesFeature>()?
+        .Addresses;
+
+    if (addresses is not null)
+    {
+        foreach (var address in addresses)
+        {
+            app.Logger.LogInformation(
+                "API Documentation: {Url}",
+                $"{address.TrimEnd('/')}/scalar"
+            );
+        }
+    }
+});
 
 app.Run();
 

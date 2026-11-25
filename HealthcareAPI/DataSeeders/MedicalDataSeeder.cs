@@ -1,21 +1,50 @@
-
 using Bogus;
 using HealthcareAPI.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HealthcareAPI.DataSeeders;
 public static class MedicalDataSeeder
 {
     public static void SeedMedicalSystem(AppDbContext context)
     {
+        var usrMock = context.Users.ToList();
         var unavailableMocks = context.UnavailabilityPeriod.Where(u => u.IsMock == true).ToList();
         var workHoursMock = context.DoctorWorkingHours.Where(w => w.IsMock == true).ToList();
         var docMocks = context.Doctors.Where(d => d.IsMock == true).ToList();
+        context.Users.RemoveRange(usrMock);
         context.Doctors.RemoveRange(docMocks);
         context.DoctorWorkingHours.RemoveRange(workHoursMock);
         context.UnavailabilityPeriod.RemoveRange(unavailableMocks);
         
         context.SaveChanges();
         
+        const string testMail = "test@test.com";
+        const string testPassword = "Testpassword1@";
+        var hasher = new PasswordHasher<Users>();
+
+        var usrFaker = new Faker<Users>()
+            .RuleFor(u => u.Id, f => Guid.NewGuid())
+            .RuleFor(u => u.Email, f => testMail)
+            .RuleFor(u => u.PasswordHash, f => testPassword)
+            .RuleFor(u => u.FirstName, f => f.Name.FirstName())
+            .RuleFor(u => u.LastName, f => f.Name.LastName())
+            .RuleFor(u => u.Role, f => Users.UserRole.Patient)
+            .RuleFor(u => u.ImagePath, (f, u) => $"https://eu.ui-avatars.com/api/?name={u.FirstName}+{u.LastName}&background=random");
+        
+        Users usr = usrFaker.Generate();
+        var patient = new Users
+        {
+            Id = usr.Id,
+            Email = usr.Email,
+            FirstName = usr.FirstName,
+            LastName = usr.LastName,
+            Role = usr.Role,
+            ImagePath = usr.ImagePath
+        };
+        patient.PasswordHash = hasher.HashPassword(patient, usr.PasswordHash);
+        Users ret = patient;
+        context.Users.Add(patient);
+
         var newPatientOptions = new[] { "Initial Consultation", "Comprehensive Intake", "First-time Assessment", "New Patient Screening" };
         var existingPatientOptions = new[] { "Routine Follow-up", "Prescription Refill Visit", "Chronic Care Review", "Results Discussion" };
         
@@ -101,7 +130,7 @@ public static class MedicalDataSeeder
         
         List<UnavailabilityPeriod> unavailabilityPeriods = unavailabilityFaker.Generate(10);
         context.UnavailabilityPeriod.AddRange(unavailabilityPeriods);
-
+    
         context.SaveChanges();
         Console.WriteLine("Old medical seeds cleared and fresh ones successfully generated!");
     }

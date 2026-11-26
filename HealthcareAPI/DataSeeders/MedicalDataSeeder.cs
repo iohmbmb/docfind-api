@@ -57,6 +57,81 @@ public static class MedicalDataSeeder
             (Suburb:"Charenton-le-Pont", Postcode:"94220", Lat:48.8211f, Lng:2.4144f)
         };
 
+        var doctorTestFaker = new Faker<Doctors>()
+            .RuleFor(d => d.Id, f => Guid.NewGuid())
+            .RuleFor(d => d.FirstName, f => f.Name.FirstName())
+            .RuleFor(d => d.LastName, f => f.Name.LastName())
+            .RuleFor(d => d.Specialty,
+                f => f.PickRandom(new[]
+                {
+                    PracticeSpecialty.Physiotherapy, PracticeSpecialty.GeneralPractice, PracticeSpecialty.Dietitian,
+                    PracticeSpecialty.Podiatry, PracticeSpecialty.Cardiology, PracticeSpecialty.Chiropractor
+                }))
+            .RuleFor(d => d.Email, f => "test.doc@test.com")
+            .RuleFor(d => d.PasswordHash, f => "Superdocpassword1@")
+            .RuleFor(d => d.HourlyRate, f => f.PickRandom(new[] { 15f, 20f, 25f, 30f, 35f, 40f }))
+            .RuleFor(d => d.Role, f => Users.UserRole.Doctor)
+            .RuleFor(d => d.Preference,
+                f => f.PickRandom(new[]
+                    { LocationPreference.Hybrid, LocationPreference.Remote, LocationPreference.InPerson }))
+            .RuleFor(d => d.Status,
+                f => f.PickRandom(new[] { Availability.Available, Availability.Away, Availability.Busy }))
+            .RuleFor(d => d.ConsultationType,
+                f => new ConsultationType() { New = newPatientOptions, Existing = existingPatientOptions })
+            .RuleFor(d => d.ImagePath, (f, d) => $"https://eu.ui-avatars.com/api/?name={d.FirstName}+{d.LastName}&background=random")
+            .RuleFor(d => d.PracticePhone, f => f.Phone.PhoneNumber("01 ## ## ## ##"))
+            .RuleFor(d => d.Biography, f => f.Lorem.Paragraph(10))
+            .FinishWith((f, d) =>
+            {
+                // 60% probability of choosing Ivry-sur-Seine, 40% choosing the other 4 local areas
+                var chosenAnchor = f.Random.Bool(0.60f) 
+                    ? ivryPriorityAnchor 
+                    : f.PickRandom(alternativeAnchors);
+
+                // Tiny structural offset (approx 50 to 200 meters) so pins don't overlap exactly
+                float latOffset = (float)f.Random.Double(-0.002, 0.002);
+                float lngOffset = (float)f.Random.Double(-0.003, 0.003);
+
+                d.Latitude = chosenAnchor.Lat + latOffset;
+                d.Longitude = chosenAnchor.Lng + lngOffset;
+        
+                d.PracticeName = $"Cabinet du Dr. {d.LastName}";
+                d.PracticeAddress = $"{f.Address.BuildingNumber()} {f.Address.StreetName()}";
+                d.PracticeSuburb = chosenAnchor.Suburb;
+                d.PracticeState = "Île-de-France";
+                d.PracticePostcode = chosenAnchor.Postcode;
+
+                d.FirstName = $"Dr. {d.FirstName}";
+                d.IsMock = true;
+            });
+        
+        Doctors request = doctorTestFaker.Generate();
+        var doctor = new Doctors
+        {
+            Id = request.Id,
+            Email = request.Email,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            Role = request.Role,
+            Specialty = request.Specialty ?? PracticeSpecialty.GeneralPractice,
+            PracticeName = request.PracticeName,
+            PracticeAddress = request.PracticeAddress,
+            PracticeSuburb = request.PracticeSuburb,
+            PracticeState = request.PracticeState,
+            PracticePostcode = request.PracticePostcode,
+            PracticePhone = request.PracticePhone,
+            Biography = request.Biography,
+            Preference = request.Preference ?? LocationPreference.Hybrid,
+            Status = request.Status ?? Availability.Available,
+            HourlyRate = request.HourlyRate,
+            Longitude = request.Longitude ?? 0,
+            Latitude = request.Latitude ?? 0,
+            IsMock = false
+        };
+        if (request.PasswordHash != null) doctor.PasswordHash = hasher.HashPassword(doctor, request.PasswordHash);
+        ret = doctor;
+        context.Doctors.Add(doctor); 
+
         var doctorFaker = new Faker<Doctors>("fr")
             .RuleFor(d => d.Id, f => Guid.NewGuid())
             .RuleFor(d => d.FirstName, f => f.Name.FirstName())
